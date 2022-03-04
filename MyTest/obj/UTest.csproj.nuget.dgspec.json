@@ -1,0 +1,141 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/huy/Desktop/coding/UTest/MyTest/UTest.csproj": {}
+  },
+  "projects": {
+    "/Users/huy/Desktop/coding/UTest/asp_a2/asp_a2.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/huy/Desktop/coding/UTest/asp_a2/asp_a2.csproj",
+        "projectName": "asp_a2",
+        "projectPath": "/Users/huy/Desktop/coding/UTest/asp_a2/asp_a2.csproj",
+        "packagesPath": "/Users/huy/.nuget/packages/",
+        "outputPath": "/Users/huy/Desktop/coding/UTest/asp_a2/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/huy/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/huy/Desktop/coding/UTest/MyTest/UTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/huy/Desktop/coding/UTest/MyTest/UTest.csproj",
+        "projectName": "UTest",
+        "projectPath": "/Users/huy/Desktop/coding/UTest/MyTest/UTest.csproj",
+        "packagesPath": "/Users/huy/.nuget/packages/",
+        "outputPath": "/Users/huy/Desktop/coding/UTest/MyTest/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/huy/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/huy/Desktop/coding/UTest/asp_a2/asp_a2.csproj": {
+                "projectPath": "/Users/huy/Desktop/coding/UTest/asp_a2/asp_a2.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.11.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.17.1, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.2, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
