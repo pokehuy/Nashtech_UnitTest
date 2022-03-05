@@ -126,7 +126,40 @@ public class PeopleControllerTest
         Assert.AreEqual("Index", view.ActionName, "Add action should return a RedirectToActionResult to Index action");
     }
 
-    
+    [Test]
+    public void Edit_ReturnsViewResult_GetAPerson()
+    {
+        //Setup
+        PersonModel per = new PersonModel{
+                Id = 1,
+                FirstName = "01",
+                LastName = "Test Edit",
+                Gender = "Male",
+                DateOfBirth = 2000,
+                PhoneNumber = "0123456789",
+                BirthPlace = "Hanoi",
+                IsGraduated = false
+        };
+        _peopleMock.Setup(p => p.Update(per)).Callback<PersonModel>((PersonModel per) => _people[0] = per);
+
+        //Arrange
+        var expectedName = per.LastName;
+        var expectedCount = _people.Count;
+        var controller = new PeopleController(_loggerMock.Object, _peopleMock.Object);
+
+        //Act
+        var result = controller.Edit(per);
+        var actualName = _people[0].LastName;
+        var actualCount = _people.Count;
+
+        //Assert
+        Assert.IsInstanceOf<RedirectToActionResult>(result, "Edit action should return a RedirectToActionResult");
+        Assert.IsNotNull(result, "Edit action should not null");
+        var view = result as RedirectToActionResult;
+        Assert.AreEqual("Index", view.ActionName, "Edit action should return a RedirectToActionResult to Index action");
+        Assert.AreEqual(expectedName, actualName, "Edit action should update the person's last name");
+        Assert.AreEqual(expectedCount, actualCount, "Edit action should not add a new person");
+    }
 
     [TearDown]
     public void TearDown()
