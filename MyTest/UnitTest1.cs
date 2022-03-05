@@ -1,11 +1,11 @@
 using NUnit.Framework;
 using Moq;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using asp_a2.Controllers;
 using asp_a2.Repository;
-using System.Collections.Generic;
 using asp_a2.Models;
-using Microsoft.AspNetCore.Mvc;
 
 namespace UTest;
 
@@ -159,6 +159,32 @@ public class PeopleControllerTest
         Assert.AreEqual("Index", view.ActionName, "Edit action should return a RedirectToActionResult to Index action");
         Assert.AreEqual(expectedName, actualName, "Edit action should update the person's last name");
         Assert.AreEqual(expectedCount, actualCount, "Edit action should not add a new person");
+    }
+
+    [Test]
+    public void Delete_ReturnsViewResult_DeleteAPerson()
+    {
+        //Setup
+        int index = 1;
+        //var controller = new PeopleController(_loggerMock.Object, _peopleMock.Object);
+        _peopleMock.Setup(p => p.Delete(index)).Callback(() => {
+            //controller.SetCookie($"DeletedAccount{_people[0].Id}", $"{_people[0].Id}{_people[0].FirstName}{_people[0].LastName}{_people[0].Gender}{_people[0].DateOfBirth}{_people[0].PhoneNumber}{_people[0].BirthPlace}{_people[0].IsGraduated}");
+            _people.Remove(_people[0]);
+        }).Returns(_people[0]);
+
+        //Arrange
+        var controller = new PeopleController(_loggerMock.Object, _peopleMock.Object);
+        var expected = _people.Count - 1;
+
+        //Act
+        var result = controller.Delete(1);
+        var actual = _people.Count;
+
+        //Assert
+        var view = result as ViewResult;
+        Assert.IsInstanceOf<ViewResult>(view, "Delete action should return a RedirectToActionResult");
+        Assert.IsNotNull(result, "Delete action should return a RedirectToActionResult");
+        Assert.AreEqual(expected, actual, "Delete action should delete a person");
     }
 
     [TearDown]
